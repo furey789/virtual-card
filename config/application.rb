@@ -32,5 +32,5 @@ module VirtualCard
     # `auth_code_url` instead.
     config.redirect_uri  = "https://virtual-card.herokuapp.com/card_specs"
   end
-
+  
 end
