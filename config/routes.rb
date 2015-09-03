@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  # resources :users, only: [:index,:new,:create]
+  resources :card_specs, only: [:index]
 
   get 'sign-in' => 'authentications#new'
   post 'sign-in' => 'authentications#create'
