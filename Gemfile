@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#specify ruby version to enable the deploy to Heroku instance.
+ruby '2.2.0'
+
 # For Heroku interpreting bootstrap
 gem 'rails_12factor', '~> 0.0.3', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -24,6 +27,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# linked in gem
 gem "linkedin-oauth2", "~> 1.0"
 
 # Use ActiveModel has_secure_password
