@@ -3,9 +3,9 @@
 
 <% info = @person_info.to_hash %>
 
-<div class="card_layout">
+<div>
   <table>
-    <tr>
+    <tr class="person_name">
       <td>
         <%= info["first_name"] + " " + info["last_name"] %>
       </td>
@@ -26,7 +26,10 @@
     </tr>
     <tr>
       <td>
-        <%= link_to "LinkedIn:", info["public_profile_url"] %>
+        See more at:
+      </td>
+      <td>
+        <%= link_to "LinkedIn", info["public_profile_url"] %>
       </td>
     </tr>
   </table>
