@@ -17,7 +17,7 @@ class CardSpecsController < ApplicationController
     @person = person.to_hash
 
     person_in_db = "no"
-    Users.all.each do |user|
+    User.all.each do |user|
       if user["email_address"] == @person["email-address"]
         person_in_db = "yes"
       end
