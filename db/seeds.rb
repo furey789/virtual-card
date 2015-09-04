@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create("first_name" => "Al", "last_name" => "Allen", "headline" => "Architect", "location" => "Alaska", "picture_url" => "none", "email_address" => "al@example.com", "public_profile_url" => "none")
+# User.create( first_name: "Al", last_name: "Allen", headline: "Architect", location: "Alaska", picture_url: "none", email_address: "al@example.com", public_profile_url: "none")
