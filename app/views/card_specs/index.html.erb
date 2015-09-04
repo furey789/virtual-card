@@ -1,4 +1,9 @@
 
 <h1>Here's Your Business Card</h1>>
 
-<%= @person_info %>
+<% info = @person_info.to_hash %>
+
+<div class="card_layout">
+  <%= info %>
+  <%= info.first_name %>
+</div>
