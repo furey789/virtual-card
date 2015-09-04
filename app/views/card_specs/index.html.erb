@@ -1,5 +1,5 @@
 
-<h1>Here's Your Business Card</h1>>
+<h1>Here's Your Business Card</h1>
 
 <% info = @person_info.to_hash %>
 
@@ -7,25 +7,26 @@
   <table>
     <tr>
       <td>
-        info["first_name"] + " " + info["last_name"]
+        <%= info["first_name"] + " " + info["last_name"] %>
       </td>
       <td>
-        <img src=info["picture_url"] width="20" height="20" alt="Profile Picture">
-      </td>
-    </tr>
-    <tr>
-      <td>
-        info["headline"]
+        <% picture = info["picture_url"] %>
+        <img src= "#{picture}" width="20" height="20" alt="Profile Picture">
       </td>
     </tr>
     <tr>
       <td>
-        info["location"]["name"] + ", " + obj["location"]["country"]["code"].upcase
+        <%= info["headline"] %>
       </td>
     </tr>
     <tr>
       <td>
-        obj["public_profile_url"]
+        <%= info["location"]["name"] + ", " + obj["location"]["country"]["code"].upcase %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= obj["public_profile_url"] %>
       </td>
     </tr>
   </table>
