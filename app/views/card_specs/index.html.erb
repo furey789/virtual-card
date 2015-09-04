@@ -11,7 +11,7 @@
       </td>
       <td>
         <% picture = info["picture_url"] %>
-        <img src= "#{picture}" width="20" height="20" alt="Profile Picture">
+        <%= image_tag("#{picture}") %>
       </td>
     </tr>
     <tr>
@@ -26,7 +26,7 @@
     </tr>
     <tr>
       <td>
-        <%= info["public_profile_url"] %>
+        <%= link_to "LinkedIn:", info["public_profile_url"] %>
       </td>
     </tr>
   </table>
