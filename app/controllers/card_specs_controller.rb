@@ -13,7 +13,7 @@ class CardSpecsController < ApplicationController
     oauth = LinkedIn::OAuth2.new
     access_token = oauth.get_access_token(code)
     api = LinkedIn::API.new(access_token)
-    @my_name = api.profile(fields: ["first-name", "last-name"])
+    @person_info = api.profile(fields: ["first-name", "last-name", "headline", "specialties", "location", "picture-url", "email-address", "public-profile-url"])
 
   end
 
