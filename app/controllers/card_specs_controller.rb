@@ -23,7 +23,7 @@ class CardSpecsController < ApplicationController
       end
     end
     if person_in_db == "no"
-      User.create("first_name" => @person["first-name"], "last_name" => @person["last-name"], "headline" => @person["headline"], "location" => @person["location"], "picture_url" => @person["picture-url"], "email_address" => @person["email-address"], "public_profile_url" => @person["public-profile-url"])
+      User.create("first_name" => @person["first-name"], "last_name" => @person["last-name"], "headline" => @person["headline"], "location" => @person["location"], "picture_url" => @person["picture-url"], "email_address" => @person["email-address"], "public_profile_url" => @person["public-profile-url"] )
     end
 
   end
