@@ -13,7 +13,18 @@ class CardSpecsController < ApplicationController
     oauth = LinkedIn::OAuth2.new
     access_token = oauth.get_access_token(code)
     api = LinkedIn::API.new(access_token)
-    @person_info = api.profile(fields: ["first-name", "last-name", "headline", "specialties", "location", "picture-url", "email-address", "public-profile-url"])
+    person = api.profile(fields: ["first-name", "last-name", "headline", "location", "picture-url", "email-address", "public-profile-url"])
+    @person = person.to_hash
+
+    person_in_db = "no"
+    Users.all.each do |user|
+      if user["email_address"] == @person["email-address"]
+        person_in_db = "yes"
+      end
+    end
+    if person_in_db == "no"
+      User.create("first_name" => @person["first-name"], "last_name" => @person["last-name"], "headline" => @person["headline"], "location" => @person["location"], "picture_url" => @person["picture-url"], "email_address" => @person["email-address"], "public_profile_url" => @person["public-profile-url"])
+    end
 
   end
 

@@ -3,27 +3,25 @@
   <h1>Here's Your Business Card</h1>
 </div>
 
-<% info = @person_info.to_hash %>
-
 <div>
   <table>
     <tr class="person_name">
       <td>
-        <%= info["first_name"] + " " + info["last_name"] %>
+        <%= @person["first_name"] + " " + @person["last_name"] %>
       </td>
       <td>
-        <% picture = info["picture_url"] %>
+        <% picture = @person["picture_url"] %>
         <%= image_tag("#{picture}") %>
       </td>
     </tr>
     <tr>
       <td>
-        <%= info["headline"] %>
+        <%= @person["headline"] %>
       </td>
     </tr>
     <tr>
       <td>
-        <%= info["location"]["name"] + ", " + info["location"]["country"]["code"].upcase %>
+        <%= @person["location"]["name"] + ", " + @person["location"]["country"]["code"].upcase %>
       </td>
     </tr>
     <tr>
@@ -32,8 +30,12 @@
     </tr>
     <tr>
       <td>
-        See more at: <%= link_to "LinkedIn", info["public_profile_url"] %>
+        See more at: <%= link_to "LinkedIn", @person["public_profile_url"] %>
       </td>
     </tr>
   </table>
+</div>
+
+<div>
+  <%= link_to "Edit" %>
 </div>
