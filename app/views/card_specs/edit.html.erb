@@ -1,23 +1,32 @@
 
 <h1>Edit</h1>
 
-<%= form_for @person_user, url: card_spec_path do |f|%>
+<div>
 
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
+  <%= form_for @person_user, url: card_spec_path do |f|%>
 
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
+    <span>
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </span>
+    <span>
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </span>
+    <span>
+      <%= f.label :headline %>
+      <%= f.text_field :headline %>
+    </span>
+    <span>
+      <%= f.label :location %>
+      <%= f.text_field :location %>
+    </span>
+    <span>
+      <%= f.label :email_address %>
+      <%= f.text_field :email_address %>
+    </span>
+    <span> <%= f.submit "Make Change" %> </span>
+    
+  <% end %>
 
-  <%= f.label :headline %>
-  <%= f.text_field :headline %>
-
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-
-  <%= f.label :email_address %>
-  <%= f.text_field :email_address %>
-
-  <%= f.submit "Make Change" %>
-
-<% end %>
+</div>
