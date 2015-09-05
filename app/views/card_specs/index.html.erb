@@ -5,33 +5,43 @@
 
 <div>
   <table>
+
     <tr class="person_name">
       <td>
-        <%= @person["first_name"] + " " + @person["last_name"] %>
+        <%= @person_user["first_name"] + " " + @person_user["last_name"] %>
       </td>
       <td>
-        <% picture = @person["picture_url"] %>
+        <% picture = @person_user["picture_url"] %>
         <%= image_tag("#{picture}") %>
       </td>
     </tr>
+
     <tr>
       <td>
-        <%= @person["headline"] %>
+        <%= @person_user["headline"] %>
       </td>
     </tr>
+
     <tr>
       <td>
-        <%= @person["location"]["name"] + ", " + @person["location"]["country"]["code"].upcase %>
+        <%= @person_user["location"] %>
       </td>
     </tr>
+
+    <% if @person_user["email_address"] != nil  %>
+      <tr>
+        <td>
+          <%= @person_user["email_address"] %>
+        </td>
+      </tr>
+    <% end %>
+
     <tr class="address">
       <td>
-        <%= @person["email_address"] %>
-      </td>
-      <td>
-        See more at: <%= link_to "LinkedIn", @person["public_profile_url"] %>
+        See more at: <%= link_to "LinkedIn", @person_user["public_profile_url"] %>
       </td>
     </tr>
+
   </table>
 </div>
 
