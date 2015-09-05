@@ -24,11 +24,10 @@
         <%= @person["location"]["name"] + ", " + @person["location"]["country"]["code"].upcase %>
       </td>
     </tr>
-    <tr>
+    <tr class="address">
       <td>
+        <%= @person["email_address"] %>
       </td>
-    </tr>
-    <tr>
       <td>
         See more at: <%= link_to "LinkedIn", @person["public_profile_url"] %>
       </td>
