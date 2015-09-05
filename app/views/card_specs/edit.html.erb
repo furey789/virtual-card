@@ -1,0 +1,23 @@
+
+<h1>Edit</h1>
+
+<% form_for @person_user, url: card_spec_path do |f|%>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+
+  <%= f.label :headline %>
+  <%= f.text_field :headline %>
+
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+
+  <%= f.label :email_address %>
+  <%= f.text_field :email_address %>
+
+  <%= f.submit "Make Change" %>
+
+<% end %>

@@ -36,4 +36,18 @@ class CardSpecsController < ApplicationController
 
   end
 
+  def edit
+    @person_user=User.find(params[:id])
+  end
+
+  def update
+    @person_user=User.find(params[:id])
+    if @person_user.update(person_user_params)
+      flash[:notice]="Your card was successfully updated"
+      redirect_to card_specs_path
+    else
+      render :edit
+    end
+  end
+
 end
