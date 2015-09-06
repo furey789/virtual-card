@@ -19,7 +19,11 @@ class CardSpecsController < ApplicationController
 
   def index
 
-    if defined?(person) == nil and defined?(@person_user) == nil
+puts "index"
+puts defined?(person)
+puts defined?(@person_user)
+
+    if ( defined?(person) == nil and defined?(@person_user) == nil )
 
       person = get_person
 
@@ -49,6 +53,10 @@ class CardSpecsController < ApplicationController
 
   def edit
     @person_user=User.find(params[:id])
+
+puts "edit"
+puts @person_user
+
   end
 
   def update
