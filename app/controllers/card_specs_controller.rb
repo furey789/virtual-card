@@ -19,17 +19,9 @@ class CardSpecsController < ApplicationController
 
   def index
 
-puts "index"
-puts defined?(person)
-puts defined?(@person_user)
-
-    if ( defined?(person) == nil and defined?(@person_user) == nil )
+    if ( session[:user_id].nil? == true )
 
       person = get_person
-
-    end
-
-    if defined?(@person_user) == nil
 
       User.all.each do |user|
         if user["first_name"] == person["first_name"] and user["last_name"] == person["last_name"] and user["email_address"] == person["email_address"]
@@ -47,16 +39,18 @@ puts defined?(@person_user)
         @person_user = User.last
       end
 
+      session[:user_id] = @person_user[:id]
+
+    else
+
+      @person_user = User.find(session[:user_id])
+
     end
 
   end
 
   def edit
     @person_user=User.find(params[:id])
-
-puts "edit"
-puts @person_user
-
   end
 
   def update
