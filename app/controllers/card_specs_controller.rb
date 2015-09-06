@@ -20,7 +20,7 @@ class CardSpecsController < ApplicationController
 
     end
 
-    if defined(@person_user) == nil
+    if defined?(@person_user) == nil
 
       User.all.each do |user|
         if user["first_name"] == person["first_name"] and user["last_name"] == person["last_name"] and user["email_address"] == person["email_address"]
@@ -28,7 +28,7 @@ class CardSpecsController < ApplicationController
         end
       end
 
-      if defined(@person_user) == nil
+      if defined?(@person_user) == nil
         country =  person["location"]["country"]["code"].upcase
         if country == 'US'
           country = country +'A'
