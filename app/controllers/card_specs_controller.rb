@@ -1,22 +1,27 @@
 
 class CardSpecsController < ApplicationController
 
+  def get_person
+
+    url_str = request.original_url
+    start_id = url_str.index('code=')+5
+    end_id = url_str.index('&state=')
+    length = end_id-start_id
+    code = url_str.slice(start_id,length)
+
+    oauth = LinkedIn::OAuth2.new
+    access_token = oauth.get_access_token(code)
+    api = LinkedIn::API.new(access_token)
+    person = api.profile(fields: ["first-name", "last-name", "headline", "location", "picture-url", "email-address", "public-profile-url"])
+    person = person.to_hash  # first-name becomes first_name, etc.
+
+  end
+
   def index
 
-    if defined?(person) == nil
+    if defined?(person) == nil and defined?(@person_user) == nil
 
-      # code = "THE_OAUTH_CODE_LINKEDIN_GAVE_ME"
-      url_str = request.original_url
-      start_id = url_str.index('code=')+5
-      end_id = url_str.index('&state=')
-      length = end_id-start_id
-      code = url_str.slice(start_id,length)
-
-      oauth = LinkedIn::OAuth2.new
-      access_token = oauth.get_access_token(code)
-      api = LinkedIn::API.new(access_token)
-      person = api.profile(fields: ["first-name", "last-name", "headline", "location", "picture-url", "email-address", "public-profile-url"])
-      person = person.to_hash  # first-name becomes first_name, etc.
+      get_person
 
     end
 
