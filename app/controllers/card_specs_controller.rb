@@ -21,7 +21,7 @@ class CardSpecsController < ApplicationController
 
     if defined?(person) == nil and defined?(@person_user) == nil
 
-      get_person
+      person = get_person
 
     end
 
