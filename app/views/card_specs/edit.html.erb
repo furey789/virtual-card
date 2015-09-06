@@ -1,32 +1,34 @@
 
-<h1>Edit</h1>
+<div class="top-text">
+  <h1>Edit Your Card Below</h1>
+</div>
 
 <div>
 
   <%= form_for @person_user, url: card_spec_path do |f|%>
 
-    <span>
+    <p>
       <%= f.label :first_name %>
       <%= f.text_field :first_name %>
-    </span>
-    <span>
+    </p>
+    <p>
       <%= f.label :last_name %>
       <%= f.text_field :last_name %>
-    </span>
-    <span>
+    </p>
+    <p>
       <%= f.label :headline %>
       <%= f.text_field :headline %>
-    </span>
-    <span>
+    </p>
+    <p>
       <%= f.label :location %>
       <%= f.text_field :location %>
-    </span>
-    <span>
+    </p>
+    <p>
       <%= f.label :email_address %>
       <%= f.text_field :email_address %>
-    </span>
-    <span> <%= f.submit "Make Change" %> </span>
-    
+    </p>
+    <p> <%= f.submit "Make Change" %> </p>
+
   <% end %>
 
 </div>
