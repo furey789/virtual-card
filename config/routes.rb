@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 
   resources :card_specs, only: [:index,:edit,:update,:destroy]
 
+  get 'email-card', to: 'card_specs#email_card'
+
 end

@@ -68,6 +68,11 @@ class CardSpecsController < ApplicationController
     redirect_to root_path
   end
 
+  def email_card
+    url = request.original_url
+    CardMailer.email_mycard('Bob',url).deliver_now
+  end
+
   private
 
   def person_user_params
