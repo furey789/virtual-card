@@ -69,6 +69,7 @@ class CardSpecsController < ApplicationController
   end
 
   def email_card
+    @person_user=User.find(params[:id])
     url = request.original_url
     CardMailer.email_mycard('Bob',url).deliver_now
   end
