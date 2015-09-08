@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  resources :card_specs, only: [:index,:edit,:update]
+  resources :card_specs, only: [:index,:edit,:update,:destroy]
 
 end
