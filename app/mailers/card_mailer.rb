@@ -6,7 +6,7 @@ class CardMailer < ApplicationMailer
 
     @name = person.first_name
     @url = url
-binding.pry
+
     mail(to: 'prfurey@gmail.com', subject: 'My new business card')
 
   end

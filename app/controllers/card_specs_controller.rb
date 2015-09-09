@@ -18,6 +18,8 @@ class CardSpecsController < ApplicationController
 
     end
 
+    session[:user_id]=@person_user.id
+
   end
 
   def show
