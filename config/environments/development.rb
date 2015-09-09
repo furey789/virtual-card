@@ -14,7 +14,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Email setup
-  config.action_mailer.default_url_options = { host:'http://localhost', port: '3000'}
+  config.action_mailer.default_url_options = { host:'http://localhost', port: '3000', only_path: false}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
@@ -23,13 +23,13 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :domain               => "localhost:3000",
     :user_name            => ENV["GMAIL_USERNAME"],
     :password             => ENV["GMAIL_PASSWORD"],
     :authentication       => "plain",
     :enable_starttls_auto => true
   }
 
+  # :domain               => "localhost:3000",
   # google.gmail.com
 
   # Print deprecation notices to the Rails logger.
