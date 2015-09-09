@@ -3,7 +3,8 @@ class CardSpecsController < ApplicationController
 
   def new
 
-    person = User.get_person_data
+    url_str = request.original_url
+    person = User.get_person_data(url_str)
     @person_user = User.find_by(linkedin_id: person["id"])
 
     if @person_user == nil

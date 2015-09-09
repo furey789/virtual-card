@@ -1,9 +1,9 @@
 
 class User < ActiveRecord::Base
 
-  def self.get_person_data
+  def self.get_person_data(url_str)
 
-    url_str = request.original_url
+    # url_str = request.original_url
     start_id = url_str.index('code=')+5
     end_id = url_str.index('&state=')
     length = end_id-start_id
