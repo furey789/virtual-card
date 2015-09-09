@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  resources :card_specs, only: [:index,:edit,:update,:destroy]
+  resources :card_specs, only: [:new,:show,:edit,:update,:destroy]
 
-  get 'email-card', to: 'card_specs#email_card'
+  post 'card_mailer', to: 'card_mailer#create'
 
 end

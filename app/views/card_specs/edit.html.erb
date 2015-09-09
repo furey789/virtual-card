@@ -5,7 +5,7 @@
 
 <div>
 
-  <%= form_for @person_user, url: card_spec_path do |f|%>
+  <%= form_for @person_user, url: card_spec_path(@person_user) do |f|%>
 
     <p>
       <%= f.label :first_name %>

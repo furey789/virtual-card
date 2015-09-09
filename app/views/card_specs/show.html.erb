@@ -1,0 +1,52 @@
+
+<div class="top-text">
+  <h1>Here's Your Business Card</h1>
+</div>
+
+<div>
+  <table>
+
+    <tr class="person_name">
+      <td>
+        <%= @person_user["first_name"] + " " + @person_user["last_name"] %>
+      </td>
+      <td>
+        <% picture = @person_user["picture_url"] %>
+        <%= image_tag("#{picture}") %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <%= @person_user["headline"] %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <%= @person_user["location"] %>
+      </td>
+    </tr>
+
+    <% if @person_user["email_address"] != nil  %>
+      <tr>
+        <td>
+          <%= @person_user["email_address"] %>
+        </td>
+      </tr>
+    <% end %>
+
+    <tr class="address">
+      <td>
+        See more at: <%= link_to "LinkedIn", @person_user["public_profile_url"] %>
+      </td>
+    </tr>
+
+  </table>
+</div>
+
+<div class="links">
+  <h2><%= link_to "Edit", edit_card_spec_path(@person_user) %></h2>
+  <h2> <%= link_to "Email Card", card_mailer_path, method: 'create' %>
+  <h2><%= link_to "Sign Out", card_spec_path(@person_user), method: 'delete' %></h2>
+</div>

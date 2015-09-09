@@ -1,12 +1,14 @@
 class CardMailer < ApplicationMailer
 
-  # Default Mail Values
-  default from: 'notifications@example.com', to: { User.pluck(:email) }
+  default from: 'nimbleten@gmail.com'
 
-  def email_mycard(name,url)
-    @name = name
-    @url  = url
-    mail(to: 'prfurey@gmail.com', subject: 'Welcome to My Awesome Site')
+  def email_card(person,url)
+
+    @name = person.first_name
+    @url = url
+binding.pry
+    mail(to: 'prfurey@gmail.com', subject: 'My new business card')
+
   end
 
 end

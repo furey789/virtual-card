@@ -33,6 +33,12 @@ h1{
   text-align: center;
 }
 
+.flashnotice{
+  font-size: 18pt;
+  text-align: center;
+  color: green;
+}
+
 table{
   width: 600px;
   margin-left: auto;
