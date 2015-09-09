@@ -9,15 +9,17 @@ class CardMailerController < ApplicationController
 
     respond_to do |format|
 
-        if @person_user
+        if @person_user.save
 
           CardMailer.email_card(@person_user, @url).deliver_now
           format.html { redirect_to @url, notice: 'A link to your card was successfully emailed!' }
+          format.text
 
         else
 
           format.html { redirect_to @url, notice: 'No person. No email!' }
-
+          format.text
+          
         end
 
     end
