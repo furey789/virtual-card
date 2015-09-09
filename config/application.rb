@@ -30,7 +30,7 @@ module VirtualCard
     # This must exactly match the redirect URI you set on your application's
     # settings page. If your redirect_uri is dynamic, pass it into
     # `auth_code_url` instead.
-    config.redirect_uri  = "https://virtual-card.herokuapp.com/card_specs"
+    config.redirect_uri  = "https://virtual-card.herokuapp.com/card_specs/new"
   end
   # figaro heroku:set -e production
 end
