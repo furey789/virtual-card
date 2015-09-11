@@ -10,17 +10,18 @@ function getPersonData(){
         makePage(data,page_url);
       }
     });
-    
+
 };
 
 function makePage(data,page_url){
 
-  var text=[
-    "Here's Your Business Card!"
+  var titles=[
+    "Your Virtual Business Card!",
+    "Edit Your Card"
     ];
 
-  var NewCardTitle = React.createClass({
-    text: text,
+  var CardTitle = React.createClass({
+    text: titles,
     render: function(text){
       return (
         <div>
@@ -68,13 +69,36 @@ function makePage(data,page_url){
     }
   });
 
+  var CardEditTitle = React.createClass({
+    text: titles,
+    render: function(text){
+      return (
+        <div>
+          <h1> {this.text[1]} </h1>
+        </div>
+      );
+    }
+  });
+
+  var CardEditForm = React.createClass({
+    data: data,
+    render: function() {
+      return (
+        <form>
+           <label>First name: <input type="text" name={this.data.first_name} /></label>
+           <label>Last name: <input type="text" name={this.data.last_name} /></label>
+        </form>
+      );
+    }
+  });
+
   var arr_page_url = page_url.split('/');
   var last_elem = arr_page_url[arr_page_url.length-1]
 
-  if ( last_elem == "new" ) {
+  if ( last_elem.slice(0,3) == "new" ) {
 
     React.render(
-      <NewCardTitle />,
+      <CardTitle />,
       document.getElementById('newcard-title')
     );
 
@@ -83,10 +107,12 @@ function makePage(data,page_url){
       document.getElementById('newcard-table')
     );
 
-  } else {
+  }
+
+  if ( last_elem.slice(0,3) != "new" && last_elem != "edit" ) {
 
     React.render(
-      <NewCardTitle />,
+      <CardTitle />,
       document.getElementById('showcard-title')
     );
 
@@ -97,10 +123,30 @@ function makePage(data,page_url){
 
   }
 
+  if ( last_elem == "edit" ) {
+
+    React.render(
+      <CardEditTitle />,
+      document.getElementById('editcard-title')
+    );
+
+    React.render(
+      <CardEditForm />,
+      document.getElementById('editcard-form')
+    );
+
+  }
+
 }
 
 $( document ).ready(function() {
+
   if ($("#newcard-title").length > 0 || $("#showcard-title").length > 0) {
     getPersonData();
   }
+
+  if ($("#editcard-title").length > 0) {
+    getPersonData();
+  }
+
 });

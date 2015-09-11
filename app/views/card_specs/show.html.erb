@@ -1,13 +1,15 @@
 
 <div>
-  <div class="top-text" id="showcard-title"></div>
+  <% if session[:user_id] != nil %>
+    <div class="top-text" id="showcard-title"></div>
+  <% end %>
   <div id="showcard-table"></div>
 </div>
 
 <% if session[:user_id] != nil %>
   <div class="links">
     <h2><%= link_to "Edit", edit_card_spec_path(@person_user) %></h2>
-    <h2> <%= link_to "Email Card", card_mailer_path, method: 'create' %>
+    <h2><%= link_to "Email Card", card_mailer_path, method: 'create' %></h2>
     <h2><%= link_to "Sign Out", card_spec_path(@person_user), method: 'delete' %></h2>
   </div>
 <% end %>
