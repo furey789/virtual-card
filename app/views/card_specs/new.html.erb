@@ -1,48 +1,7 @@
 
-<div class="top-text">
-  <h1>Here's Your Business Card</h1>
-</div>
-
 <div>
-  <table>
-
-    <tr class="person_name">
-      <td>
-        <%= @person_user["first_name"] + " " + @person_user["last_name"] %>
-      </td>
-      <td>
-        <% picture = @person_user["picture_url"] %>
-        <%= image_tag("#{picture}") %>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <%= @person_user["headline"] %>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <%= @person_user["location"] %>
-      </td>
-    </tr>
-
-    <% if @person_user["email_address"] != nil  %>
-      <tr>
-        <td>
-          <%= @person_user["email_address"] %>
-        </td>
-      </tr>
-    <% end %>
-
-    <tr class="address">
-      <td>
-        See more at: <%= link_to "LinkedIn", @person_user["public_profile_url"] %>
-      </td>
-    </tr>
-
-  </table>
+  <div class="top-text" id="newcard-title"></div>
+  <div id="newcard-table"></div>
 </div>
 
 <div class="links">

@@ -15,5 +15,6 @@
 // skip this require turbolinks
 //= require react
 //= require react_ujs
+//= require JSXTransformer.js
 //= require components
 //= require_tree .

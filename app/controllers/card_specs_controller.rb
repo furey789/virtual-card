@@ -1,6 +1,11 @@
 
 class CardSpecsController < ApplicationController
 
+  def get_data
+    @person_user = User.find(session[:user_id])
+    render json: @person_user.to_json
+  end
+
   def new
 
     url_str = request.original_url

@@ -33,4 +33,5 @@ module VirtualCard
     config.redirect_uri  = "https://virtual-card.herokuapp.com/card_specs/new"
   end
   # figaro heroku:set -e production
+
 end

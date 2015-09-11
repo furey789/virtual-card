@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :card_specs, only: [:new,:show,:edit,:update,:destroy]
 
+  get 'card_specs', to: 'card_specs#get_data'
+
   post 'card_mailer', to: 'card_mailer#create'
 
 end
