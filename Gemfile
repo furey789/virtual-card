@@ -40,7 +40,7 @@ gem "linkedin-oauth2", "~> 1.0"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'pry'
+# gem 'pry'
 
 gem 'figaro'
 
