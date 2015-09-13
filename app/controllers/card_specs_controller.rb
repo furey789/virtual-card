@@ -6,6 +6,10 @@ class CardSpecsController < ApplicationController
     render json: @person_user.to_json
   end
 
+  def update_data
+
+  end
+
   def new
 
     url_str = request.original_url
@@ -37,7 +41,17 @@ class CardSpecsController < ApplicationController
   end
 
   def update
+    if request.put?
+      puts "******NNNNQQQ"
+      puts params
+      puts params[:id]
+      puts "********"
+    end
     @person_user=User.find(params[:id])
+    puts @person_user
+    puts @person_user.first_name
+    puts "********"
+binding.pry
     if @person_user.update(person_user_params)
       flash[:notice]="Your card was successfully updated!"
       redirect_to card_spec_path(@person_user)
