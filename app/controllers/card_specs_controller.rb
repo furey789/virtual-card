@@ -2,14 +2,15 @@
 class CardSpecsController < ApplicationController
 
   def get_data
-    puts '***************'
-    puts request.original_url
-    puts params
-    @person_user = User.find(session[:user_id])
-    render json: @person_user.to_json
-  end
 
-  def update_data
+    @person_user = User.find(session[:user_id])
+    loggedin = session[:loggedin]
+    if loggedin == nil
+      loggedin = "no"
+    end
+    data = [ @person_user, loggedin ]
+
+    render json: data.to_json
 
   end
 
@@ -31,12 +32,20 @@ class CardSpecsController < ApplicationController
 
     end
 
-    session[:user_id]=@person_user.id
+    session[:user_id] = @person_user.id
+    session[:loggedin] = "yes"
 
   end
 
   def show
+
     @person_user = User.find(params[:id])
+
+    if ( session[:user_id] == nil )
+      session[:user_id] = @person_user.id
+      session[:loggedin] = nil
+    end
+
   end
 
   def edit
@@ -55,6 +64,7 @@ class CardSpecsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    session[:loggedin] = nil
     redirect_to root_path
   end
 

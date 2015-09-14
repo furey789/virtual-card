@@ -1,14 +1,12 @@
 
 function getPersonData(){
 
-  console.log(window.location.pathname);
-
   return $.ajax({
     type: 'GET',
     url: '/card_specs',    // Action found via render in controller
     dataType: 'json',
     success: function(data) {
-      page_url = window.location.pathname
+      var page_url = window.location.pathname
       makePage(data,page_url);
     },
     error: function() {
@@ -37,7 +35,7 @@ function makePage(data,page_url){
   });
 
   var CardTable = React.createClass({
-    data: data,
+    data: data[0],
     render: function() {
       return (
         <table className="table">
@@ -104,10 +102,12 @@ function makePage(data,page_url){
 
   if ( last_elem.slice(0,3) != "new" && last_elem != "edit" ) {
 
-    React.render(
-      <CardTitle />,
-      document.getElementById('showcard-title')
-    );
+    if ( data[1] === "yes" ) {
+      React.render(
+        <CardTitle />,
+        document.getElementById('showcard-title')
+      );
+    }
 
     React.render(
       <CardTable />,
@@ -129,11 +129,11 @@ function makePage(data,page_url){
 
 $( document ).ready(function() {
 
-  if ($("#newcard-title").length > 0 || $("#showcard-title").length > 0) {
+  if ($("#newcard").length > 0 || $("#showcard").length > 0) {
     getPersonData();
   }
 
-  if ($("#editcard-title").length > 0) {
+  if ($("#editcard").length > 0) {
     getPersonData();
   }
 
