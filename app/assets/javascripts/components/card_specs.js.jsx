@@ -19,7 +19,7 @@ function getPersonData(){
 function makePage(data,page_url){
 
   var titles=[
-    "Your Virtual Business Card!",
+    "Your Virtual Business Card",
     "Edit Your Card"
     ];
 

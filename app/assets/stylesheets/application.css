@@ -29,12 +29,11 @@ p{
   border-bottom: solid 2px
 }
 
-h1{
+h1, h2, h3{
   text-align: center;
 }
 
 h3{
-  text-align: center;
   color: blue;
 }
 
@@ -77,8 +76,4 @@ img{
   border-color: black;
   border-radius: 4px;
   padding: 0;
-}
-
-.links{
-  text-align: center;
 }
