@@ -1,19 +1,6 @@
 
 class CardSpecsController < ApplicationController
 
-  def get_data
-
-    @person_user = User.find(session[:user_id])
-    loggedin = session[:loggedin]
-    if loggedin == nil
-      loggedin = "no"
-    end
-    data = [ @person_user, loggedin ]
-
-    render json: data.to_json
-
-  end
-
   def new
 
     url_str = request.original_url
@@ -68,10 +55,24 @@ class CardSpecsController < ApplicationController
     redirect_to root_path
   end
 
+  def get_data
+
+    @person_user = User.find(session[:user_id])
+    loggedin = session[:loggedin]
+    if loggedin == nil
+      loggedin = "no"
+    end
+    data = [ @person_user, loggedin ]
+
+    render json: data.to_json
+
+  end
+
+
   private
 
   def person_user_params
-    params.require(:user).permit(:first_name,:last_name,:headline,:location,:email_address)
+    params.require(:user).permit(:first_name,:last_name,:headline,:location,:email_address,:email_address_recipients)
   end
 
 end

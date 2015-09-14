@@ -6,7 +6,6 @@
     <!-- <div id="editcard-form"></div> -->
   </div>
 
-
   <div>
 
     <%= form_for @person_user, url: card_spec_path(@person_user) do |f|%>
@@ -30,6 +29,13 @@
       <p>
         <%= f.label :email_address %>
         <%= f.text_field :email_address %>
+      </p>
+      <p>
+        <h3> Add email addresses below (comma separated) to send your card to colleagues: </h3>
+      </p>
+      <p>
+        <%= f.label :email_address_recipients %>
+        <%= f.text_field :email_address_recipients %>
       </p>
       <p> <%= f.submit "Make Change" %> </p>
 

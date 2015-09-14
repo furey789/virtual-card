@@ -33,6 +33,11 @@ h1{
   text-align: center;
 }
 
+h3{
+  text-align: center;
+  color: blue;
+}
+
 .flashnotice{
   font-size: 18pt;
   text-align: center;

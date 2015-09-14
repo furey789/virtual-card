@@ -6,9 +6,10 @@
   <div id="newcard-table"></div>
 
   <div class="links">
+
     <h2><%= link_to "Edit", edit_card_spec_path(@person_user) %></h2>
-    <h2><%= link_to "Email Card", card_mailer_path, method: 'create' %></h2>
     <h2><%= link_to "Sign Out", card_spec_path(@person_user), method: 'delete' %></h2>
+
   </div>
 
 </div>
