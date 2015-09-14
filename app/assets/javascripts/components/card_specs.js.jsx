@@ -1,6 +1,8 @@
 
 function getPersonData(){
 
+  console.log(window.location.pathname);
+
   return $.ajax({
     type: 'GET',
     url: '/card_specs',    // Action found via render in controller
