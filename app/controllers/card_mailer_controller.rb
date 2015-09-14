@@ -5,7 +5,9 @@ class CardMailerController < ApplicationController
 
     @person_user = User.find(session[:user_id])
     # @url = 'http://localhost:3000/card_specs/'+@person_user.id.to_s
-    @url = 'https://virtual-card.herokuapp.com/card_specs/'+@person_user.id.to_s
+    # @url = 'https://virtual-card.herokuapp.com/card_specs/'+@person_user.id.to_s
+    path_url = request.original_url
+    @url = path_url.split('card_mailer')[0]+'card_specs/'+@person_user.id.to_s
 
     respond_to do |format|
 
@@ -19,7 +21,7 @@ class CardMailerController < ApplicationController
 
           format.html { redirect_to @url, notice: 'No person. No email!' }
           format.text
-          
+
         end
 
     end
