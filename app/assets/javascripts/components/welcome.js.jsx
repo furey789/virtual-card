@@ -5,7 +5,6 @@ $( document ).ready(function() {
 
     var text=[
       "Virtual Card",
-      "About!",
       "Here, you can create a virtual business card to share with colleagues and clients.",
       "You must have a LinkedIn account to get started."
       ];
@@ -28,7 +27,6 @@ $( document ).ready(function() {
         <div>
           <h2> {this.text[1]} </h2>
           <h2> {this.text[2]} </h2>
-          <h2> {this.text[3]} </h2>
         </div>
         );
       }

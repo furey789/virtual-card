@@ -2,6 +2,9 @@
 class CardSpecsController < ApplicationController
 
   def get_data
+    puts '***************'
+    puts request.original_url
+    puts params
     @person_user = User.find(session[:user_id])
     render json: @person_user.to_json
   end
