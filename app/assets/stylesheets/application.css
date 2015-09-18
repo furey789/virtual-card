@@ -67,7 +67,7 @@ h3 button{
 }
 
 table{
-  width: 600px;
+  width: auto;
   margin-left: auto;
   margin-right: auto;
   border-style: solid;
@@ -81,8 +81,13 @@ table{
   box-shadow: 0 0 10px olive;
 }
 
-.person_name{
-  font-size: 25pt;
+
+#myname{
+  font-size: 20pt; 
+}
+
+#mypicture{
+  padding-left: 75px;
 }
 
 .address{

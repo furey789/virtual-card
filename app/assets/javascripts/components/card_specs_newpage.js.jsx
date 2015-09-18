@@ -33,10 +33,10 @@ var Card = React.createClass({
 
         <table className="table">
           <tr className="row">
-            <td>
+            <td id="myname">
               {this.state.first_name + ' ' + this.state.last_name}
             </td>
-            <td>
+            <td id="mypicture">
               <img src={this.state.picture_url} alt='photo' />
             </td>
           </tr>
