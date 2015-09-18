@@ -36,33 +36,51 @@ class CardSpecsController < ApplicationController
   end
 
   def edit
+
     @person_user=User.find(params[:id])
+
   end
 
   def update
+
     @person_user=User.find(params[:id])
-    if @person_user.update(person_user_params)
-      flash[:notice]="Your card was successfully updated!"
-      redirect_to card_spec_path(@person_user)
-    else
-      render :edit
-    end
+    @person_user.update(person_user_params)
+    render json: {state: "success"}
+    flash[:notice]="Your card was successfully updated!"
+
+    # if @person_user.update(person_user_params)
+    # flash[:notice]="Your card was successfully updated!"
+    # redirect_to card_spec_path(@person_user), method='get'
+    # else
+    #  render :edit
+    # end
+
   end
 
   def destroy
+
     session[:user_id] = nil
     session[:loggedin] = nil
     redirect_to root_path
+
   end
 
   def get_data
 
-    @person_user = User.find(session[:user_id])
+    pagetitle = "Your Virtual Business Card"
+
+    person_user = User.find(session[:user_id])
+    person_user = JSON.parse(person_user.to_json)
+    # ActiveRecord objects are weird!
+
     loggedin = session[:loggedin]
     if loggedin == nil
       loggedin = "no"
     end
-    data = [ @person_user, loggedin ]
+
+    data = person_user
+    data["loggedin"] = loggedin
+    data["pagetitle"] = pagetitle
 
     render json: data.to_json
 

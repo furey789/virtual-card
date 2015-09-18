@@ -29,6 +29,12 @@ p{
   border-bottom: solid 2px
 }
 
+h1{
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  padding-bottom: 40px;
+}
+
 h1, h2, h3{
   text-align: center;
 }
