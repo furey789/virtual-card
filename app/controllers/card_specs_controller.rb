@@ -1,6 +1,8 @@
 
 class CardSpecsController < ApplicationController
 
+  before_action :ensure_login, only: [:edit,:update]
+
   def new
 
     url_str = request.original_url
@@ -44,16 +46,15 @@ class CardSpecsController < ApplicationController
   def update
 
     @person_user=User.find(params[:id])
-    @person_user.update(person_user_params)
-    render json: {state: "success"}
-    flash[:notice]="Your card was successfully updated!"
 
-    # if @person_user.update(person_user_params)
-    # flash[:notice]="Your card was successfully updated!"
-    # redirect_to card_spec_path(@person_user), method='get'
-    # else
-    #  render :edit
-    # end
+    if params[:user] != nil
+      @person_user.update(person_user_params)
+      render json: {state: "success"}
+      flash[:notice]="Your card was successfully updated!"
+    else
+      render json: {state: "success"}
+      flash[:alert]="You made no changes to your card."
+    end
 
   end
 

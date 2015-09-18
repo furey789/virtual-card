@@ -26,46 +26,46 @@ var Card = React.createClass({
   render: function() {
     //console.log(this.state);
 
-      return (
-        <div>
+    return (
+      <div>
 
-          <Title data={this.state} />
+        <Title data={this.state} />
 
-          <table className="table">
-            <tr className="row">
-              <td>
-                {this.state.first_name + ' ' + this.state.last_name}
-              </td>
-              <td>
-                <img src={this.state.picture_url} alt='photo' />
-              </td>
-            </tr>
-            <tr className="row">
-              <td>
-                {this.state.headline}
-              </td>
-            </tr>
-            <tr className="row">
-              <td>
-                {this.state.location}
-              </td>
-            </tr>
-            <tr className="row">
-              <td>
-                {this.state.email_address}
-              </td>
-            </tr>
-            <tr className="row">
-              <td>
-                See more at: <a href={this.state.public_profile_url}> LinkedIn </a>
-              </td>
-            </tr>
-          </table>
+        <table className="table">
+          <tr className="row">
+            <td>
+              {this.state.first_name + ' ' + this.state.last_name}
+            </td>
+            <td>
+              <img src={this.state.picture_url} alt='photo' />
+            </td>
+          </tr>
+          <tr className="row">
+            <td>
+              {this.state.headline}
+            </td>
+          </tr>
+          <tr className="row">
+            <td>
+              {this.state.location}
+            </td>
+          </tr>
+          <tr className="row">
+            <td>
+              {this.state.email_address}
+            </td>
+          </tr>
+          <tr className="row">
+            <td>
+              See more at: <a href={this.state.public_profile_url}> LinkedIn </a>
+            </td>
+          </tr>
+        </table>
 
-          <Links data={this.state} />
+        <Links data={this.state} />
 
-        </div>
-      )
+      </div>
+    )
   }
 });
 
@@ -91,6 +91,7 @@ var Links = React.createClass({
   render: function() {
 
     if (this.props.data.loggedin === "yes"){
+
       var main_url = window.location.pathname
       main_url = main_url.split('/');
       main_url.pop();
@@ -98,10 +99,13 @@ var Links = React.createClass({
       return (
         <h2><a href={edit_url} title="edit"> Edit </a></h2>
       )
+
     } else {
+
       return (
         <div></div>
       )
+
     }
 
   }
@@ -113,10 +117,12 @@ var Links = React.createClass({
 $( document ).ready(function() {
 
   if ($("#newcard").length > 0) {
+
     React.render(
       <Card />,
       document.getElementById('newcard')
     );
+
   }
 
 });

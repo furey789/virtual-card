@@ -1,7 +1,7 @@
 class CardMailer < ApplicationMailer
 
-  default to: 'prfurey@gmail.com',
-    from: 'nimbleten@gmail.com'
+  default to: ENV["GMAIL_USERNAME"],
+    from: ENV["GMAIL_USERNAME"]
 
   def email_card(person,url)
 

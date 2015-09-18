@@ -92,15 +92,16 @@ var EditCard = React.createClass({
             <h3><label>Email Address:</label> <input type="email" placeholder={this.state.email_address} ref="email" />
           </h3>
           <p>
-            <h1></h1>
-            <h2> Add addresses (comma separated) to send your card to colleagues: </h2>
+            <h2> Add addresses to send your card to colleagues: </h2>
           </p>
           <p>
-            <h3><label>Recipient Email Addresses:</label>
-              <input type="text" placeholder={this.state.email_address_recipients} ref="emailOthers" />
+            <h3><label>Recipient Email Addresses:</label></h3>
+            <h3>
+              <input type="text" placeholder={this.state.email_address_recipients} ref="emailOthers" size="50"/>
             </h3>
           </p>
-          <h3><button id="submit" type="submit">Update Your Card</button> </h3>
+            <h1></h1>
+            <h3><button id="submit" type="submit">Update Your Card</button></h3>
           </form>
       </div>
     )

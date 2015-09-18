@@ -35,18 +35,35 @@ h1{
   padding-bottom: 40px;
 }
 
-h1, h2, h3{
+h1, h2 {
   text-align: center;
-}
-
-h3{
-  color: blue;
 }
 
 .flashnotice{
   font-size: 18pt;
   text-align: center;
   color: green;
+  padding: 0;
+}
+
+.flashalert{
+  font-size: 18pt;
+  text-align: center;
+  color: red;
+  padding: 0;
+}
+
+h3{
+  padding-left: 100px;
+  color: blue;
+}
+
+h3 label{
+  margin-right: 10px;
+}
+
+h3 button{
+  margin-left: 150px;
 }
 
 table{
@@ -71,6 +88,10 @@ table{
 .address{
   height: 45px;
   vertical-align: bottom;
+}
+
+.editcard{
+  padding-left: 40px;
 }
 
 img{
