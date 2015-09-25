@@ -62,7 +62,9 @@ var Card = React.createClass({
           </tr>
         </table>
 
-        <Links data={this.state} />
+        <div> 
+          <Links data={this.state} />
+        </div>
 
       </div>
     )

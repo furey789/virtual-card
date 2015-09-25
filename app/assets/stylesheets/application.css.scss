@@ -42,6 +42,20 @@ h1, h2 {
   text-align: center;
 }
 
+
+h2 a {
+  color: blue;
+  text-decoration: none;
+  background-color: lightgrey;
+  margin: auto;
+  width: 30%;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  border-color: gray;
+  padding: 8px 10px 4px 10px;
+}
+
 h3{
   padding-left: 100px;
   color: blue;
@@ -81,9 +95,8 @@ table{
   background-color: #F2F2F2;
   border-top-right-radius: 6px;
   border-bottom-left-radius: 6px;
-  box-shadow: 0 0 10px olive;
+  // box-shadow: 0 0 10px #9FF781;
 }
-
 
 #myname{
   font-size: 20pt;
@@ -111,8 +124,4 @@ img{
   border-color: black;
   border-radius: 4px;
   padding: 0;
-}
-
-.links {
-  text-decoration: none;
 }
