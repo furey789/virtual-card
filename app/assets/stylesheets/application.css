@@ -14,6 +14,13 @@
  *= require_self
  */
 
+body {
+ background-image: url("forest-mountains.jpg");
+ background-size: cover;
+ font-family: "Palatino";
+ color: black;
+}
+
 div{
   width: 600px;
   margin-left: auto;
@@ -25,10 +32,6 @@ p{
   font-size: 18pt;
 }
 
-.top-text{
-  border-bottom: solid 2px
-}
-
 h1{
   border-bottom-style: solid;
   border-bottom-width: 2px;
@@ -37,6 +40,19 @@ h1{
 
 h1, h2 {
   text-align: center;
+}
+
+h3{
+  padding-left: 100px;
+  color: blue;
+}
+
+h3 label{
+  margin-right: 10px;
+}
+
+h3 button{
+  margin-left: 150px;
 }
 
 .flashnotice{
@@ -51,19 +67,6 @@ h1, h2 {
   text-align: center;
   color: red;
   padding: 0;
-}
-
-h3{
-  padding-left: 100px;
-  color: blue;
-}
-
-h3 label{
-  margin-right: 10px;
-}
-
-h3 button{
-  margin-left: 150px;
 }
 
 table{
@@ -83,7 +86,7 @@ table{
 
 
 #myname{
-  font-size: 20pt; 
+  font-size: 20pt;
 }
 
 #mypicture{
@@ -108,4 +111,8 @@ img{
   border-color: black;
   border-radius: 4px;
   padding: 0;
+}
+
+.links {
+  text-decoration: none;
 }
