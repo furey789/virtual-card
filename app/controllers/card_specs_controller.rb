@@ -16,8 +16,14 @@ class CardSpecsController < ApplicationController
         country = country +'A'
       end
       location = person["location"]["name"] + ", " + country
-      User.create("linkedin_id" => person["id"], "first_name" => person["first_name"], "last_name" => person["last_name"], "headline" => person["headline"], "location" => location, "picture_url" => person["picture_url"], "email_address" => person["email_address"], "public_profile_url" => person["public_profile_url"] )
+      User.create("linkedin_id" => person["id"], "session_id" => session["session_id"], "first_name" => person["first_name"], "last_name" => person["last_name"], "headline" => person["headline"], "location" => location, "picture_url" => person["picture_url"], "email_address" => person["email_address"], "public_profile_url" => person["public_profile_url"] )
       @person_user = User.last
+
+    end
+
+    if @person_user != nil
+
+      @person_user.update("session_id": session["session_id"])
 
     end
 
@@ -30,7 +36,7 @@ class CardSpecsController < ApplicationController
 
     @person_user = User.find(params[:id])
 
-    if ( session[:user_id] == nil )
+    if ( @person_user["session_id"] != session["session_id"] )
       session[:user_id] = @person_user.id
       session[:loggedin] = nil
     end
